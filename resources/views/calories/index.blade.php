@@ -14,14 +14,14 @@
 
         $mealStyles = [
             'Sarapan' => 'bg-amber-50 text-amber-700 ring-amber-200/70',
-            'Makan Siang' => 'bg-emerald-50 text-emerald-700 ring-emerald-200/70',
+            'Makan Siang' => 'bg-blue-50 text-blue-700 ring-blue-200/70',
             'Makan Malam' => 'bg-indigo-50 text-indigo-700 ring-indigo-200/70',
             'Camilan' => 'bg-orange-50 text-orange-700 ring-orange-200/70',
         ];
 
         $mealDots = [
             'Sarapan' => 'bg-amber-500',
-            'Makan Siang' => 'bg-emerald-500',
+            'Makan Siang' => 'bg-blue-500',
             'Makan Malam' => 'bg-indigo-500',
             'Camilan' => 'bg-orange-500',
         ];
@@ -35,18 +35,27 @@
             </p>
         </div>
 
-        <a href="{{ route('calories.create') }}"
-           class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-emerald-600/20 transition hover:bg-emerald-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-500/20">
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14" />
-            </svg>
-            Catat Kalori
-        </a>
+        <div class="flex flex-wrap items-center gap-2">
+            <a href="{{ route('recipes.index') }}"
+               class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-.673 0-1.33.075-1.96.217a.75.75 0 0 0-.59.734v14.25a.75.75 0 0 0 .964.725 9.03 9.03 0 0 1 2.336-.31 8.967 8.967 0 0 1 5.25 1.75 8.967 8.967 0 0 1 5.25-1.75c.81 0 1.597.108 2.336.31a.75.75 0 0 0 .964-.725V4.701a.75.75 0 0 0-.59-.734A9.045 9.045 0 0 0 18 3.75a8.967 8.967 0 0 0-6 2.292Z" />
+                </svg>
+                Lihat Resep
+            </a>
+            <a href="{{ route('calories.create') }}"
+               class="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-blue-600/20 transition hover:bg-blue-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500/20">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14" />
+                </svg>
+                Catat Kalori
+            </a>
+        </div>
     </div>
 
     @if (session('success'))
-        <div class="mt-6 flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3.5 text-sm text-emerald-800">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <div class="mt-6 flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3.5 text-sm text-blue-800">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-blue-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m9 12.75 2.25 2.25L15 9m6 3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
             <p class="font-medium">{{ session('success') }}</p>
@@ -69,7 +78,7 @@
             <div class="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm sm:p-5">
                 <div class="flex items-start justify-between gap-3">
                     <p class="text-xs font-medium uppercase tracking-wide text-slate-500">Total Kalori</p>
-                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
+                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-blue-50 text-blue-600">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3.5c.8 3-0.4 4.8-1.9 6.3-1.6 1.7-2.9 3.3-2.3 6 .4 1.8 2 3.2 3.9 3.2 2.6 0 4.3-1.9 4.3-4.4 0-4.4-2.7-8.7-4-11.1Z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 20.5c-1.9-.6-3.3-2.3-3.3-4.4 0-1.5.7-2.7 1.6-3.6" />
@@ -147,10 +156,10 @@
                 <div>
                     <label for="date" class="mb-1.5 block text-xs font-medium text-slate-500">Filter tanggal</label>
                     <input type="date" name="date" id="date" value="{{ $date }}"
-                           class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 sm:w-44">
+                           class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 sm:w-44">
                 </div>
                 <button type="submit"
-                        class="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700">
+                        class="rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
                     Terapkan
                 </button>
                 @if ($date)
@@ -176,7 +185,7 @@
                 </thead>
                 <tbody class="divide-y divide-slate-100">
                     @forelse ($logs as $log)
-                        <tr class="transition hover:bg-emerald-50/30">
+                        <tr class="transition hover:bg-blue-50/30">
                             <td class="px-4 py-4 sm:px-6">
                                 <div class="flex items-start gap-3">
                                     <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-slate-50 text-slate-400 ring-1 ring-slate-200/70">
@@ -233,7 +242,7 @@
                     @empty
                         <tr>
                             <td colspan="6" class="px-6 py-16 text-center">
-                                <span class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-emerald-50 text-emerald-500">
+                                <span class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-blue-50 text-blue-500">
                                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
@@ -242,8 +251,9 @@
                                     {{ $date ? 'Belum ada catatan pada tanggal ini' : 'Belum ada catatan kalori' }}
                                 </p>
                                 <p class="mt-1 text-sm text-slate-500">Mulai catat makanan pertamamu untuk melihat ringkasannya di sini.</p>
+                                <p class="mt-1 text-xs text-slate-400">Belum tahu kalori makanannya? Pilih dari resep Hungy, nutrisinya terisi otomatis.</p>
                                 <a href="{{ route('calories.create') }}"
-                                   class="mt-5 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700">
+                                   class="mt-5 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700">
                                     <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-7-7h14" />
                                     </svg>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CalorieLog;
+use App\Support\NutritionCatalog;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
@@ -53,10 +54,16 @@ class CalorieLogController extends Controller
     /**
      * Show the form for creating a new calorie log.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
+        $slug = $request->query('recipe');
+        $preselected = is_string($slug) ? NutritionCatalog::recipe($slug) : null;
+
         return view('calories.create', [
             'mealTypes' => self::MEAL_TYPES,
+            'recipes' => NutritionCatalog::recipes(),
+            'foods' => NutritionCatalog::foods(),
+            'preselected' => $preselected,
         ]);
     }
 
@@ -80,6 +87,8 @@ class CalorieLogController extends Controller
         return view('calories.edit', [
             'log' => $calorie,
             'mealTypes' => self::MEAL_TYPES,
+            'recipes' => NutritionCatalog::recipes(),
+            'foods' => NutritionCatalog::foods(),
         ]);
     }
 
